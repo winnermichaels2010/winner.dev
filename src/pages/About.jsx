@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import useScrollAnimation from '../components/useScrollAnimation';
 
 const skills = [
@@ -19,14 +20,55 @@ const milestones = [
     title: 'Freelance Developer',
     description: 'Started building real-world projects independently — client websites, booking platforms, and interactive apps.',
   },
+];
+
+const whatIDo = [
   {
-    title: 'Growing Full-Stack',
-    description: 'Expanding skills into back-end development with Node.js and databases, evolving toward full-stack capabilities.',
+    title: 'Web Development',
+    description: 'Building fast, responsive, and accessible websites using modern frameworks and best practices.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+  },
+  {
+    title: 'UI/UX Design',
+    description: 'Crafting clean, intuitive interfaces that feel natural and look beautiful across all devices.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <polyline points="21 15 16 10 5 21" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Performance',
+    description: 'Optimizing load times, Core Web Vitals, and user experience for speed that matters.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Responsive Design',
+    description: 'Ensuring seamless experiences on phones, tablets, and desktops with fluid layouts.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    ),
   },
 ];
 
 export default function About() {
   const heroRef = useScrollAnimation();
+  const whatRef = useScrollAnimation();
   const skillsRef = useScrollAnimation();
   const journeyRef = useScrollAnimation();
 
@@ -36,58 +78,112 @@ export default function About() {
 
   return (
     <div>
-      {/* Hero Intro */}
+      {/* Hero */}
       <section ref={heroRef} className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
-        {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 right-1/4 w-[400px] h-[400px] bg-accent/6 rounded-full blur-[120px] animate-pulse" />
           <div className="absolute bottom-10 left-1/3 w-[300px] h-[300px] bg-teal-500/4 rounded-full blur-[100px]" style={{ animationDelay: '3s' }} />
-          <div
-            className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-              backgroundSize: '80px 80px',
-            }}
-          />
+          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-6">
-          <div className="animate-on-scroll mb-4">
-            <span
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-medium"
-              style={{
-                backgroundColor: 'rgba(16,185,129,0.08)',
-                border: '1px solid rgba(16,185,129,0.15)',
-                color: 'var(--c-text-sec)',
-              }}
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
-              </span>
-              About Me
-            </span>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+            {/* Left: Text */}
+            <div className="lg:col-span-3">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight animate-on-scroll leading-[1.1]">
+                {"Hi, I'm"}{' '}
+                <span className="bg-gradient-to-r from-accent via-emerald-300 to-teal-400 bg-clip-text text-transparent">
+                  Michael Winner
+                </span>
+              </h1>
+
+              <p className="mt-6 text-lg leading-relaxed animate-on-scroll animate-delay-1" style={{ color: 'var(--c-text-sec)' }}>
+                A front-end web developer based in{' '}
+                <strong style={{ color: 'var(--c-text)' }}>Aba, Abia State, Nigeria</strong>. I trained at{' '}
+                <strong style={{ color: 'var(--c-text)' }}>Rad5 Tech Hub</strong>, where I built a strong foundation in modern web development.
+              </p>
+
+              <p className="mt-4 leading-relaxed animate-on-scroll animate-delay-2" style={{ color: 'var(--c-text-sec)' }}>
+                I work independently as a freelancer, creating real-world projects for clients and continuously pushing my skills forward.
+                I believe great web development is about crafting experiences that feel effortless and look beautiful.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4 animate-on-scroll animate-delay-3">
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-accent rounded-2xl font-semibold text-sm hover:bg-accent-hover hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-accent/20"
+                  style={{ color: '#0c1210' }}
+                >
+                  Get In Touch
+                  <svg className="group-hover:translate-x-0.5 transition-transform" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl font-semibold text-sm hover:-translate-y-0.5 transition-all duration-200"
+                  style={{ border: '1.5px solid var(--c-border)', color: 'var(--c-text)' }}
+                >
+                  View Projects
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: Stats card */}
+            <div className="lg:col-span-2 animate-on-scroll animate-delay-2">
+              <div className="p-8 rounded-3xl" style={{ backgroundColor: 'var(--c-card)', border: '1px solid var(--c-border)' }}>
+                <div className="grid grid-cols-2 gap-6">
+                  {[
+                    { number: '10+', label: 'Projects Built' },
+                    { number: '5+', label: 'Technologies' },
+                    { number: '100%', label: 'Commitment' },
+                    { number: '∞', label: 'Curiosity' },
+                  ].map((stat) => (
+                    <div key={stat.label} className="text-center">
+                      <span className="block text-3xl font-extrabold text-accent">{stat.number}</span>
+                      <span className="text-xs mt-1 block" style={{ color: 'var(--c-text-muted)' }}>{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 pt-6" style={{ borderTop: '1px solid var(--c-border)' }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-accent rounded-full animate-pulse" />
+                    <span className="text-sm" style={{ color: 'var(--c-text-sec)' }}>Available for freelance work</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What I Do */}
+      <section ref={whatRef} className="py-20 sm:py-28" style={{ borderTop: '1px solid var(--c-border)' }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-14 animate-on-scroll">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              What I <span className="text-accent">Do</span>
+            </h2>
+            <p className="mt-3 max-w-lg mx-auto" style={{ color: 'var(--c-text-sec)' }}>
+              Services and skills I bring to every project.
+            </p>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight animate-on-scroll animate-delay-1 max-w-3xl leading-[1.1]">
-            Front-end Developer{' '}
-            <span className="inline-block bg-gradient-to-r from-accent via-emerald-300 to-teal-400 bg-clip-text text-transparent">
-              crafting
-            </span>{' '}
-            beautiful web experiences.
-          </h1>
-
-          <div className="mt-8 max-w-2xl space-y-4 leading-relaxed animate-on-scroll animate-delay-2" style={{ color: 'var(--c-text-sec)' }}>
-            <p>
-              {"I'm a "}<strong style={{ color: 'var(--c-text)' }}>front-end web developer</strong>{" based in "}
-              <strong style={{ color: 'var(--c-text)' }}>Aba, Abia State, Nigeria</strong>. I trained at{' '}
-              <strong style={{ color: 'var(--c-text)' }}>Rad5 Tech Hub</strong>, where I developed a strong foundation in building modern web applications.
-              {"I work independently as a freelancer, creating real-world projects for clients and continuously pushing my skills forward."}
-            </p>
-            <p>
-              {"I believe great web development is about more than just code — it's about crafting experiences that feel effortless and look beautiful."}
-              My focus is on clean interfaces, smooth interactions, and accessible design that works for everyone.
-            </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {whatIDo.map((item, i) => (
+              <div
+                key={item.title}
+                className={`animate-on-scroll animate-delay-${(i % 4) + 1} p-6 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group`}
+                style={{ backgroundColor: 'var(--c-card)', border: '1px solid var(--c-border)' }}
+              >
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-accent/15"
+                  style={{ backgroundColor: 'rgba(16,185,129,0.08)', color: '#10b981' }}>
+                  {item.icon}
+                </div>
+                <h3 className="font-semibold" style={{ color: 'var(--c-text)' }}>{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--c-text-sec)' }}>{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -140,14 +236,12 @@ export default function About() {
           </div>
 
           <div className="relative max-w-3xl mx-auto">
-            {/* Vertical line */}
             <div className="absolute left-6 top-0 bottom-0 w-px hidden sm:block"
               style={{ background: 'linear-gradient(to bottom, #10b981, var(--c-border))' }} />
 
             <div className="space-y-6">
               {milestones.map((item, i) => (
                 <div key={i} className="relative sm:pl-16 animate-on-scroll" style={{ transitionDelay: `${i * 0.1}s` }}>
-                  {/* Dot */}
                   <div className="absolute left-4 top-6 w-4 h-4 bg-accent rounded-full hidden sm:block"
                     style={{ border: '4px solid var(--c-bg)' }} />
 

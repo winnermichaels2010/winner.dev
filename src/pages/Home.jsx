@@ -1,18 +1,36 @@
 import { Link } from 'react-router-dom';
 import useScrollAnimation from '../components/useScrollAnimation';
 
-const techStack = [
-  { name: 'HTML5', icon: '◆', color: '#fb923c' },
-  { name: 'CSS3', icon: '◆', color: '#60a5fa' },
-  { name: 'JavaScript', icon: '◆', color: '#facc15' },
-  { name: 'React', icon: '◆', color: '#22d3ee' },
-  { name: 'Tailwind', icon: '◆', color: '#38bdf8' },
-  { name: 'Git', icon: '◆', color: '#f87171' },
+const showcaseImages = [
+  {
+    src: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop',
+    alt: 'Modern website design on laptop',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&h=400&fit=crop',
+    alt: 'Creative web development workspace',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=400&fit=crop',
+    alt: 'Clean UI design on screen',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop',
+    alt: 'Dashboard design mockup',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop',
+    alt: 'Developer coding on laptop',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop',
+    alt: 'Mobile app interface design',
+  },
 ];
 
 export default function Home() {
   const heroRef = useScrollAnimation();
-  const techRef = useScrollAnimation();
+  const workRef = useScrollAnimation();
   const aboutRef = useScrollAnimation();
   const ctaRef = useScrollAnimation();
 
@@ -36,24 +54,7 @@ export default function Home() {
         </div>
 
         <div className="relative max-w-6xl mx-auto px-6 py-24 w-full">
-          <div className="animate-on-scroll mb-8">
-            <span
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-medium"
-              style={{
-                backgroundColor: 'rgba(16,185,129,0.08)',
-                border: '1px solid rgba(16,185,129,0.15)',
-                color: 'var(--c-text-sec)',
-              }}
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent" />
-              </span>
-              Available for freelance work
-            </span>
-          </div>
-
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight animate-on-scroll animate-delay-1 max-w-4xl">
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight animate-on-scroll max-w-4xl">
             Building the web,{' '}
             <span className="inline-block bg-gradient-to-r from-accent via-emerald-300 to-teal-400 bg-clip-text text-transparent">
               one pixel
@@ -62,13 +63,13 @@ export default function Home() {
           </h1>
 
           <p
-            className="mt-8 text-lg sm:text-xl max-w-2xl leading-relaxed animate-on-scroll animate-delay-2"
+            className="mt-8 text-lg sm:text-xl max-w-2xl leading-relaxed animate-on-scroll animate-delay-1"
             style={{ color: 'var(--c-text-sec)' }}
           >
             Front-end web developer who transforms ideas into fast, accessible, and visually striking digital experiences. Based in Nigeria.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4 animate-on-scroll animate-delay-3">
+          <div className="mt-10 flex flex-wrap gap-4 animate-on-scroll animate-delay-2">
             <Link
               to="/projects"
               className="group inline-flex items-center gap-2.5 px-8 py-4 bg-accent rounded-2xl font-semibold text-sm hover:bg-accent-hover hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-accent/20"
@@ -89,7 +90,7 @@ export default function Home() {
           </div>
 
           <p
-            className="mt-12 flex items-center gap-2 text-sm animate-on-scroll animate-delay-4"
+            className="mt-12 flex items-center gap-2 text-sm animate-on-scroll animate-delay-3"
             style={{ color: 'var(--c-text-muted)' }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -101,39 +102,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section ref={techRef} className="py-20 sm:py-28">
+      {/* Showcase */}
+      <section ref={workRef} className="py-20 sm:py-28" style={{ borderTop: '1px solid var(--c-border)' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14 animate-on-scroll">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Technologies I <span className="text-accent">Work With</span>
+              What <span className="text-accent">I Build</span>
             </h2>
             <p className="mt-3 max-w-lg mx-auto" style={{ color: 'var(--c-text-sec)' }}>
-              A focused toolkit for building modern, responsive web applications.
+              Clean, modern, and responsive web experiences — from landing pages to full platforms.
             </p>
           </div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
-            {techStack.map((tech, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {showcaseImages.map((img, i) => (
               <div
-                key={tech.name}
-                className={`animate-on-scroll animate-delay-${(i % 4) + 1} group flex flex-col items-center gap-3 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
-                style={{
-                  backgroundColor: 'var(--c-card)',
-                  border: '1px solid var(--c-border)',
-                }}
+                key={i}
+                className={`animate-on-scroll animate-delay-${(i % 4) + 1} group relative rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300`}
+                style={{ border: '1px solid var(--c-border)' }}
               >
-                <div
-                  className="text-2xl transition-transform duration-300 group-hover:scale-110"
-                  style={{ color: tech.color }}
-                >
-                  {tech.icon}
+                <div className="aspect-[3/2] overflow-hidden" style={{ backgroundColor: 'var(--c-card)' }}>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-                <span className="text-xs font-medium" style={{ color: 'var(--c-text-sec)' }}>
-                  {tech.name}
-                </span>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center"
+                  style={{ backgroundColor: 'rgba(16,185,129,0.08)', backdropFilter: 'blur(2px)' }}>
+                  <span className="px-5 py-2.5 bg-accent rounded-xl text-sm font-semibold shadow-lg" style={{ color: '#0c1210' }}>
+                    See Projects →
+                  </span>
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 text-center animate-on-scroll">
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-medium transition-all duration-200 hover:-translate-y-0.5"
+              style={{ border: '1px solid var(--c-border)', color: 'var(--c-text-sec)' }}
+            >
+              View All Projects
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
@@ -144,7 +160,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
             <div className="animate-on-scroll">
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                {"Hi, I'm "} <span className="text-accent">winner.dev</span>
+                {"Hi, I'm "} <span className="text-accent">Michael Winner Sopuruchi</span>
               </h2>
               <p className="mt-5 leading-relaxed" style={{ color: 'var(--c-text-sec)' }}>
                 Front-end web developer trained at{' '}
@@ -166,7 +182,7 @@ export default function Home() {
             <div className="animate-on-scroll animate-delay-2">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { number: '3+', label: 'Projects Built' },
+                  { number: '10+', label: 'Projects Built' },
                   { number: '5+', label: 'Technologies' },
                   { number: '100%', label: 'Commitment' },
                   { number: '∞', label: 'Curiosity' },
