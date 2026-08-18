@@ -13,7 +13,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Navbar />
-      <main>
+      <main className="min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
