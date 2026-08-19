@@ -129,10 +129,52 @@ export default function About() {
               </div>
             </div>
 
-            {/* Right: Stats card */}
-            <div className="lg:col-span-2 animate-on-scroll animate-delay-2">
-              <div className="p-8 rounded-3xl" style={{ backgroundColor: 'var(--c-card)', border: '1px solid var(--c-border)' }}>
-                <div className="grid grid-cols-2 gap-6">
+            {/* Right: Profile Image */}
+            <div className="lg:col-span-2 animate-on-scroll animate-delay-2 flex flex-col items-center lg:items-start">
+              {/* Image with premium glow + ring */}
+              <div className="relative group">
+                {/* Outer ambient glow */}
+                <div className="absolute -inset-4 rounded-[2.2rem] opacity-60 blur-2xl transition-all duration-700 group-hover:opacity-100"
+                  style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.2), rgba(6,182,212,0.12), rgba(16,185,129,0.08))' }} />
+
+                {/* Rotating conic gradient border */}
+                <div className="absolute -inset-[3px] rounded-[2rem] opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: 'conic-gradient(from 0deg, #10b981, #06b6d4, #22d3ee, #10b981, #34d399, #10b981)',
+                    animation: 'spin 6s linear infinite',
+                  }} />
+
+                {/* Dark card inset */}
+                <div className="relative p-[3px] rounded-[1.9rem]" style={{ backgroundColor: 'var(--c-card)' }}>
+                  <div className="relative overflow-hidden rounded-[1.7rem]">
+                    <img
+                      src="/Winner/Winner.jpg"
+                      alt="Michael Winner"
+                      className="w-full aspect-[4/5] object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    />
+                    {/* Subtle vignette overlay */}
+                    <div className="absolute inset-0 rounded-[1.7rem]"
+                      style={{ background: 'linear-gradient(to top, rgba(12,18,16,0.5) 0%, transparent 40%)' }} />
+                    {/* Bottom info badge */}
+                    <div className="absolute bottom-0 inset-x-0 p-4 flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <span className="relative flex h-2.5 w-2.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent" />
+                        </span>
+                        <span className="text-xs font-medium text-white/90">Available for work</span>
+                      </div>
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80">
+                        Aba, NG
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Stats below image */}
+              <div className="mt-6 w-full p-6 rounded-2xl" style={{ backgroundColor: 'var(--c-card)', border: '1px solid var(--c-border)' }}>
+                <div className="grid grid-cols-2 gap-5">
                   {[
                     { number: '10+', label: 'Projects Built' },
                     { number: '5+', label: 'Technologies' },
@@ -140,16 +182,10 @@ export default function About() {
                     { number: '∞', label: 'Curiosity' },
                   ].map((stat) => (
                     <div key={stat.label} className="text-center">
-                      <span className="block text-3xl font-extrabold text-accent">{stat.number}</span>
-                      <span className="text-xs mt-1 block" style={{ color: 'var(--c-text-muted)' }}>{stat.label}</span>
+                      <span className="block text-2xl font-extrabold text-accent">{stat.number}</span>
+                      <span className="text-[11px] mt-1 block" style={{ color: 'var(--c-text-muted)' }}>{stat.label}</span>
                     </div>
                   ))}
-                </div>
-                <div className="mt-6 pt-6" style={{ borderTop: '1px solid var(--c-border)' }}>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-accent rounded-full animate-pulse" />
-                    <span className="text-sm" style={{ color: 'var(--c-text-sec)' }}>Available for freelance work</span>
-                  </div>
                 </div>
               </div>
             </div>
