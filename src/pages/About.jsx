@@ -70,6 +70,7 @@ export default function About() {
   const heroRef = useScrollAnimation();
   const whatRef = useScrollAnimation();
   const skillsRef = useScrollAnimation();
+  const resumeRef = useScrollAnimation();
   const journeyRef = useScrollAnimation();
 
   useEffect(() => {
@@ -260,7 +261,7 @@ export default function About() {
       </section>
 
       {/* Resume / CV */}
-      <section className="py-20 sm:py-28" style={{ borderTop: '1px solid var(--c-border)' }}>
+      <section ref={resumeRef} className="py-20 sm:py-28" style={{ borderTop: '1px solid var(--c-border)' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14 animate-on-scroll">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
