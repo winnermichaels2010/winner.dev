@@ -47,6 +47,30 @@ const projects = [
     icon: '🛍️',
     gradient: 'from-pink-500/20 to-purple-500/20',
   },
+  {
+    id: 'weather-forecast',
+    title: 'Weather Forecast',
+    description:
+      'A real-time weather application that lets users check current weather conditions for any location. Features user authentication with search history tracking, so logged-in users can quickly revisit past searches.',
+    tags: ['React', 'REST API', 'Authentication', 'Location Services'],
+    demoUrl: 'https://weather-forecast-website-eight.vercel.app/',
+    codeUrl: '#',
+    screenshot: 'https://weather-forecast-website-eight.vercel.app',
+    icon: '🌤️',
+    gradient: 'from-sky-500/20 to-blue-500/20',
+  },
+  {
+    id: 'foodie',
+    title: 'Foodie',
+    description:
+      'A modern restaurant website with a searchable food catalog. Users can browse menu categories, discover dishes, and enjoy a beautifully crafted dining experience from the comfort of their screen.',
+    tags: ['React', 'UI/UX', 'Search', 'Responsive Design'],
+    demoUrl: 'https://restaurant-work.lovable.app',
+    codeUrl: '#',
+    screenshot: 'https://restaurant-work.lovable.app',
+    icon: '🍽️',
+    gradient: 'from-amber-500/20 to-orange-500/20',
+  },
 ];
 
 export default projects;

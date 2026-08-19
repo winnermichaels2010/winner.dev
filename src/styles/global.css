@@ -97,6 +97,8 @@
   .animate-delay-2 { transition-delay: 0.2s; }
   .animate-delay-3 { transition-delay: 0.3s; }
   .animate-delay-4 { transition-delay: 0.4s; }
+  .animate-delay-5 { transition-delay: 0.5s; }
+  .animate-delay-6 { transition-delay: 0.6s; }
 
   .line-clamp-3 {
     display: -webkit-box;
@@ -113,5 +115,185 @@
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-8px); }
+  }
+
+  /* Card premium hover glow */
+  .card-glow {
+    position: relative;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.45s ease;
+  }
+
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    background: radial-gradient(
+      600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(16, 185, 129, 0.06),
+      transparent 40%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card-glow:hover::before {
+    opacity: 1;
+  }
+
+  .card-glow:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 20px 40px -12px rgba(16, 185, 129, 0.12),
+      0 0 0 1px rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+
+  /* Gradient text shimmer */
+  .gradient-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* Floating orb animation */
+  @keyframes orb-float-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+  }
+
+  @keyframes orb-float-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-25px, 20px) scale(0.95); }
+    66% { transform: translate(20px, -25px) scale(1.05); }
+  }
+
+  /* Tag pill hover effect */
+  .tag-pill {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .tag-pill:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+    background-color: rgba(16, 185, 129, 0.18) !important;
+  }
+
+  /* Staggered paragraph reveal */
+  .reveal-paragraph {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-paragraph.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Tech pill entrance */
+  .tech-pill {
+    opacity: 0;
+    transform: scale(0.8) translateY(8px);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .tech-pill.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  .tech-pill:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.25);
+  }
+
+  /* Button magnetic hover */
+  .btn-magnetic {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-magnetic::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .btn-magnetic:hover::after {
+    opacity: 1;
+  }
+
+  .btn-magnetic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  }
+
+  /* Page transition overlay */
+  .page-transition {
+    animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes pageIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Iframe subtle zoom on hover */
+  .iframe-zoom {
+    transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .iframe-zoom:hover {
+    transform: scale(1.03);
+  }
+
+  /* Milestone pulse ring */
+  .milestone-pulse {
+    position: relative;
+  }
+
+  .milestone-pulse::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.05); }
+  }
+
+  /* Counter number count-up effect */
+  .count-number {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .count-number:hover {
+    transform: scale(1.1);
   }
 }

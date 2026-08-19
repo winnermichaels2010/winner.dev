@@ -259,6 +259,67 @@ export default function About() {
         </div>
       </section>
 
+      {/* Resume / CV */}
+      <section className="py-20 sm:py-28" style={{ borderTop: '1px solid var(--c-border)' }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-14 animate-on-scroll">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              My <span className="text-accent">Resume</span>
+            </h2>
+            <p className="mt-3 max-w-lg mx-auto" style={{ color: 'var(--c-text-sec)' }}>
+              A summary of my skills, experience, and education.
+            </p>
+          </div>
+
+          <div className="max-w-md mx-auto animate-on-scroll">
+            <div
+              className="p-8 rounded-2xl text-center transition-all duration-300 hover:shadow-lg"
+              style={{ backgroundColor: 'var(--c-card)', border: '1px solid var(--c-border)' }}
+            >
+              <div className="w-16 h-16 mx-auto mb-5 rounded-2xl flex items-center justify-center" style={{ backgroundColor: 'rgba(16,185,129,0.1)' }}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold" style={{ color: 'var(--c-text)' }}>Michael Winner Sopuruchi</h3>
+              <p className="text-sm mt-1 mb-6" style={{ color: 'var(--c-text-sec)' }}>Front-end Web Developer</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="/Michael-Winner-Sopuruchi-CV/Michael-Winner-Sopuruchi-CV.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ border: '1.5px solid var(--c-border)', color: 'var(--c-text)' }}
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  View CV
+                </a>
+                <a
+                  href="/Michael-Winner-Sopuruchi-CV/Michael-Winner-Sopuruchi-CV.jpg"
+                  download="Michael-Winner-Sopuruchi-CV.jpg"
+                  className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent rounded-2xl font-semibold text-sm hover:bg-accent-hover hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-accent/20"
+                  style={{ color: '#0c1210' }}
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Download CV
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Journey */}
       <section ref={journeyRef} className="py-20 sm:py-28" style={{ borderTop: '1px solid var(--c-border)' }}>
         <div className="max-w-6xl mx-auto px-6">
