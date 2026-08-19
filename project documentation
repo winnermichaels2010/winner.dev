@@ -1,0 +1,146 @@
+PROJECT DOCUMENTATION: winner.dev
+
+
+OVERVIEW
+
+winner.dev is a personal portfolio website for Michael Winner Sopuruchi, a front-end web developer based in Aba, Abia State, Nigeria. The website serves as an online presence to showcase skills, projects, and services while providing a direct contact channel for potential clients and collaborators. Michael was trained at Rad5 Tech Hub and currently works as an independent freelancer.
+
+The live website is available at https://winner.dev.
+
+
+TECHNOLOGY STACK
+
+The website is built using the following technologies:
+
+Language: JavaScript (JSX)
+Framework: React 18.3.1
+Build Tool: Vite 5.4.10
+Styling: Tailwind CSS 4.3.3
+Routing: React Router DOM 7.18.2
+Form Handling: Formspree (https://formspree.io)
+Fonts: Inter and JetBrains Mono from Google Fonts
+Linting: ESLint 9.13.0
+Module System: ES Modules
+Deployment: Vercel
+
+
+PROJECT STRUCTURE
+
+The project follows a clean and organized folder structure:
+
+The root directory contains the main configuration files including index.html (the HTML entry point), package.json (dependencies and scripts), vite.config.js (Vite configuration with React and Tailwind plugins), and eslint.config.js (ESLint configuration).
+
+The public directory holds static assets such as the favicon.svg and a hero background image used on the landing page.
+
+The src directory is the main source folder and contains the following subdirectories:
+
+src/main.jsx - The React entry point that mounts the application with the ThemeProvider wrapper.
+
+src/App.jsx - The root component that defines all client-side routes.
+
+src/components/ - Contains reusable components including Navbar.jsx (fixed top navigation with blur backdrop and mobile hamburger menu), Footer.jsx (site-wide footer with navigation links, social links, and contact info), ThemeContext.jsx (React Context for dark/light theme with localStorage persistence), ThemeToggle.jsx (sun/moon toggle button), ScrollToTop.jsx (scrolls to top on route changes), and useScrollAnimation.js (custom hook using IntersectionObserver for scroll-triggered animations).
+
+src/pages/ - Contains all page components including Home.jsx (landing page with hero, showcase grid, about preview, and call-to-action), About.jsx (bio, skills with animated progress bars, services cards, and journey timeline), Projects.jsx (project listing with live iframe previews), ProjectDetail.jsx (individual project view with full details), Contact.jsx (contact form powered by Formspree with direct contact links), and NotFound.jsx (custom 404 page).
+
+src/data/ - Contains data files including projects.js (array of project objects with id, title, description, tags, demo URLs, icons, and gradients) and projectDetails.js (extended project data with full descriptions, tech stacks, roles, and milestones).
+
+src/styles/ - Contains global.css which imports Tailwind and defines CSS custom properties for the theming system along with scroll animation keyframes.
+
+The dist directory contains the production build output ready for deployment.
+
+
+PAGES AND ROUTING
+
+The website uses client-side routing via React Router DOM with the following routes:
+
+Route "/ maps to the Home page, which is the landing page featuring a hero section, project showcase grid, about preview section, and a call-to-action.
+
+Route "/about" maps to the About page, which displays a bio section, skills with animated progress bars, "What I Do" service cards, and a journey timeline.
+
+Route "/projects" maps to the Projects page, which shows a listing of all featured projects with live iframe previews displayed inside browser-chrome-styled cards.
+
+Route "/projects/:id" maps to the ProjectDetail page, which shows the full details of an individual project including tech stack, role, and milestones.
+
+Route "/contact" maps to the Contact page, which contains a contact form powered by Formspree along with direct links to email, GitHub, Twitter, and phone.
+
+Any unmatched route maps to the NotFound page, which displays a custom 404 error page.
+
+
+THEMING SYSTEM
+
+The website features a dark and light theme toggle system built with React Context and CSS custom properties.
+
+Dark mode uses a deep blue-gray background (#0f172a) with light-colored text. Light mode uses a white background with dark text. Both themes share an emerald green (#10b981) accent color used throughout the site for highlights, buttons, and interactive elements.
+
+The theme preference is persisted in localStorage so that returning visitors see their last chosen theme. A flash-prevention script is included directly in index.html that reads the theme from localStorage before React mounts, preventing a flash of unstyled content on page load.
+
+
+KEY FEATURES
+
+Dark and Light Theme Toggle: Users can switch between dark and light modes. The preference is saved in localStorage and persists across sessions. A flash-prevention script ensures smooth theme loading.
+
+Responsive Design: The website is fully responsive with a mobile-first approach. The navigation bar collapses into a hamburger menu on smaller screens, and all layouts adapt gracefully to different screen sizes.
+
+Scroll Animations: A custom useScrollAnimation hook uses the IntersectionObserver API to detect when elements enter the viewport and applies fade-up entrance animations with staggered delays.
+
+Client-Side Routing: All navigation happens client-side through React Router DOM, providing instant page transitions without full page reloads.
+
+Contact Form: The contact page includes a form powered by Formspree that allows visitors to send messages directly. The form includes fields for name, email, and message with success and error states.
+
+Sticky Navigation Bar: The navbar is fixed at the top of the page with scroll-aware transparency and blur effects. An accent gradient line appears at the bottom of the navbar.
+
+SEO Optimization: The website includes Open Graph and Twitter Card meta tags for social sharing, semantic HTML structure, dynamic page titles per route, and meta descriptions.
+
+
+FEATURED PROJECTS
+
+The portfolio showcases three main projects:
+
+Expand Global
+Type: Graphic design studio website
+Technologies: HTML, CSS, JavaScript, UI/UX
+Live URL: https://expand-global.vercel.app
+Description: A professional website for a graphic design studio. Customers can browse services, order branding and logo design projects, communicate with the designer, and make payments online. This project was also developed as part of the Rad5 Tech Hub IT program.
+
+Medicare Booking
+Type: Medical appointment booking platform
+Technologies: React, Node.js, Role-Based Authentication, REST API
+Live URL: https://medicare-booking-orcin.vercel.app
+Description: A medical appointment booking platform where users select a time slot and describe their issue. The platform features a role-based admin system where general staff log in using an admin code, while the head admin uses email and password login and has exclusive control over the admin code.
+
+Whotopia
+Type: Online multiplayer card game
+Technologies: React, WebSockets, Game Logic
+Live URL: https://whotopia.vercel.app
+Description: An online multiplayer platform for the classic Whot card game, which is a popular Nigerian card game. The platform supports room-based multiplayer where players join games using room codes. It also includes a "Play vs Computer" AI mode for single-player practice. Whotopia was presented at Demo Day on August 22, 2026 at Rad5 Tech Hub.
+
+
+DEVELOPMENT
+
+To set up and run the project locally, the following prerequisites are needed: Node.js version 18 or higher and npm.
+
+The available commands are:
+"npm install" to install all project dependencies.
+"npm run dev" to start the Vite development server with hot module replacement.
+"npm run build" to create a production build in the /dist directory.
+"npm run preview" to preview the production build locally.
+"npm run lint" to run ESLint across the project.
+
+
+DEPLOYMENT
+
+The website is built as static assets using Vite and deployed to Vercel. The production build output is generated in the /dist directory. Each of the three featured project demos is also hosted on Vercel under separate subdomains.
+
+
+SEARCH ENGINE OPTIMIZATION
+
+The website is optimized for search engines with the following measures: Open Graph meta tags for social media sharing, Twitter Card meta tags, semantic HTML structure throughout all pages, dynamic page titles that update per route, and meta descriptions included in the index.html file.
+
+
+AUTHOR INFORMATION
+
+Name: Michael Winner Sopuruchi
+Role: Front-end Web Developer
+Location: Aba, Abia State, Nigeria
+Training: Rad5 Tech Hub
+Website: https://winner.dev

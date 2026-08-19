@@ -35,6 +35,18 @@ const projects = [
     icon: '🃏',
     gradient: 'from-orange-500/20 to-red-500/20',
   },
+  {
+    id: 'smartsale',
+    title: 'SmartSale',
+    description:
+      'A modern fashion business management platform built to help designers, boutiques, and apparel brands manage products, inventory, customers, sales, and business performance — all in one place.',
+    tags: ['React', 'Database', 'Auth', 'Business Logic'],
+    demoUrl: 'https://smartsales-com-ng.vercel.app',
+    codeUrl: '#',
+    screenshot: 'https://smartsales-com-ng.vercel.app',
+    icon: '🛍️',
+    gradient: 'from-pink-500/20 to-purple-500/20',
+  },
 ];
 
 export default projects;

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import useScrollAnimation from '../components/useScrollAnimation';
 import projects from '../data/projects';
 
@@ -20,12 +21,9 @@ export default function Projects() {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, i) => (
-              <a
+              <div
                 key={project.id}
-                href={project.demoUrl !== '#' ? project.demoUrl : undefined}
-                target={project.demoUrl !== '#' ? '_blank' : undefined}
-                rel={project.demoUrl !== '#' ? 'noopener noreferrer' : undefined}
-                className={`animate-on-scroll animate-delay-${(i % 4) + 1} group rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300 block`}
+                className={`animate-on-scroll animate-delay-${(i % 4) + 1} group rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300`}
                 style={{ border: '1px solid var(--c-border)', backgroundColor: 'var(--c-card)' }}
               >
                 {/* Browser header */}
@@ -63,7 +61,7 @@ export default function Projects() {
                     </div>
                   )}
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center"
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3"
                     style={{ backgroundColor: 'rgba(16,185,129,0.08)', backdropFilter: 'blur(2px)' }}>
                     <span className="px-5 py-2.5 bg-accent rounded-xl text-sm font-semibold shadow-lg" style={{ color: '#0c1210' }}>
                       Visit Site →
@@ -88,8 +86,29 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Details Button */}
+                  <Link
+                    to={`/projects/${project.id}`}
+                    className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] group/btn"
+                    style={{
+                      background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-hover))',
+                      color: '#0c1210',
+                      border: 'none',
+                    }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover/btn:rotate-[360deg]">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="16" x2="12" y2="12" />
+                      <line x1="12" y1="8" x2="12.01" y2="8" />
+                    </svg>
+                    Details
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover/btn:translate-x-1">
+                      <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                  </Link>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
